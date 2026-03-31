@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Fact Generator</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+        .container {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+        }
+        h1 { color: #764ba2; margin-bottom: 0.5rem; }
+        .fact-box {
+            background: #f8f9fa;
+            border-left: 5px solid #764ba2;
+            padding: 20px;
+            margin: 20px 0;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            transition: all 0.3s ease;
+        }
+        button {
+            background: #764ba2;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.2s;
+        }
+        button:hover { background: #5a377d; transform: scale(1.05); }
+        button:active { transform: scale(0.95); }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Did You Know?</h1>
+    <div class="fact-box" id="fact-display">
+        Click the button to reveal a fascinating fact!
+    </div>
+    <button onclick="newFact()">Generate Random Fact</button>
+</div>
+
+<script>
+    const facts = [
+        "A single bolt of lightning contains enough energy to toast 100,000 slices of bread.",
+        "Honey never spoils; explorers have found edible honey in 3,000-year-old Egyptian tombs.",
+        "The heart of a shrimp is located in its head.",
+        "A group of flamingos is called a 'flamboyance'.",
+        "Octopuses have three hearts and blue blood.",
+        "The Eiffel Tower can grow more than 15 cm taller during the summer due to thermal expansion.",
+        "Wombat poop is cube-shaped to prevent it from rolling away.",
+        "Scotland has 421 words for 'snow'.",
+        "The inventory of all the gold ever mined would fit into just over three Olympic-sized swimming pools.",
+        "Bananas are berries, but strawberries are not.",
+        "There are more possible iterations of a game of chess than there are atoms in the observable universe.",
+        "A snail can sleep for up to three years.",
+        "Venus is the only planet in our solar system that rotates clockwise.",
+        "The fingerprints of koalas are so similar to humans' that they have been confused at crime scenes.",
+        "It would take 1.2 million mosquitoes, each sucking once, to completely drain the average human of blood."
+    ];
+
+    function newFact() {
+        const display = document.getElementById('fact-display');
+        const randomIndex = Math.floor(Math.random() * facts.length);
+        
+        // Add a simple fade effect
+        display.style.opacity = 0;
+        setTimeout(() => {
+            display.innerText = facts[randomIndex];
+            display.style.opacity = 1;
+        }, 150);
+    }
+</script>
+
+</body>
+</html>
